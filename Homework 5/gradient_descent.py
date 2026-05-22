@@ -19,10 +19,10 @@ def gradient_method(func, gradient, x_0, delta=0.1, max_iter=1000, tol=1e-5):
         sigma = 1.0  
         
         # compute armijo line factor
-        armijo_rhs_factor = delta * np.dot(grad, d)
+        armijo_factor = delta * np.dot(grad, d)
         
         # Reduce stepsize by half until function below armijo line
-        while func(x + sigma * d) > func(x) + sigma * armijo_rhs_factor:
+        while func(x + sigma * d) > func(x) + sigma * armijo_factor:
             sigma /= 2.0  
             
         # update x_k+1
